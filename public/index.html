@@ -49,9 +49,24 @@
             <div className="commentForm">
             Hello, World! I am a comment form!
             </div>
-          )
+          );
         }
-      })
+      });
+
+      // tutorial4.js - creating a comment component
+      var Comment = React.createClass({
+        render: function () {
+          return (
+            <div className="comment">
+              <h2 className="commentAuthor">
+                {this.props.author}
+              </h2>
+              {this.props.children}
+            </div>
+          );
+        }
+      });
+      
       ReactDOM.render(
         <CommentBox />
         document.getElementById('content')
