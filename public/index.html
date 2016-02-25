@@ -18,18 +18,40 @@
       // To get started with this tutorial running your own code, simply remove
       // the script tag loading scripts/example.js and start writing code here.
 
-      // tutorial1.js
-      var CommentBox=React.createClass({
-        render.function(){
-          return(
+      // tutorial1.js - creating the comment box component
+      var CommentBox = React.createClass({
+        render: function () {
+          return (
             <div className="commentBox">
             Hello, World! I am a comment box!
+            </div>
+          );
+        }
+      });
+
+      // tutorial2.js - creating the comment list component
+      var CommentList = React.createClass({
+        render: function () {
+          return (
+            <div className="commentList">
+            Hello, World! I am a comment List!
+            </div>
+          );
+        }
+      });
+
+      // tutorial3.js - creating the comment form component
+      var CommentForm = React.createClass({
+        render: function () {
+          return (
+            <div className="commentForm">
+            Hello, World! I am a comment form!
             </div>
           )
         }
       })
       ReactDOM.render(
-        <CommentBox/>
+        <CommentBox />
         document.getElementById('content')
       )
     </script>
