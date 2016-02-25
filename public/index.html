@@ -36,7 +36,10 @@
         render: function () {
           return (
             <div className="commentList">
-            Hello, World! I am a comment List!
+              <Comment author="Pete Hunt">This is a comment
+                </Comment>
+              <Comment author="Jordan Walke">This is *another* commment
+                </Comment>
             </div>
           );
         }
@@ -66,7 +69,7 @@
           );
         }
       });
-      
+
       ReactDOM.render(
         <CommentBox />
         document.getElementById('content')
