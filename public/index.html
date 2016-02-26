@@ -99,8 +99,8 @@
             return;
           };
 
-          // todo - send request to server
-          this.setState({author: '', text: ''})
+          this.props.onCommentSubmit({author: author, text: text});
+          this.setState({author: '', text: ''});
         },
 
         render: function () {
