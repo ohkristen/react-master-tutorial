@@ -86,7 +86,9 @@
       ];
 
       ReactDOM.render(
-        <CommentBox data={data} />
+        // <CommentBox data={data} />
+        // adding the line below causes the code not to work until additional steps are complete"
+        <CommentBox url="/api/comments"/>
         document.getElementById('content')
       )
     </script>
