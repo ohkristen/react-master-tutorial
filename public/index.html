@@ -20,11 +20,7 @@
 
       // tutorial1.js - creating the comment box component
       var CommentBox = React.createClass({
-        getInitialState: function () {
-          return {data:[]}
-        },
-        // using jQuery to make an aynchronous request to the server to get data and change the state
-        componentDidMount: function () {
+        loadCommentsFromServer: function () {
           $.ajax ({
             url: this.props.url,
             dataType: 'json',
@@ -35,8 +31,19 @@
             error: function(xhr, status, err){
               console.error(this.props.url, status, err.toString());
             }.bind(this)
-          })
-        }
+          });
+        },
+
+        getInitialState: function () {
+          return {data:[]}
+        },
+
+        // using jQuery to make an aynchronous request to the server to get data and change the state
+        componentDidMount: function () {
+          this.loadCommentsFromServer();
+          setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+        },
+
         render: function () {
           return (
             <div className="commentBox">
@@ -105,7 +112,7 @@
       ReactDOM.render(
         // <CommentBox data={data} />
         // adding the line below causes the code not to work until additional steps are complete"
-        <CommentBox url="/api/comments"/>
+        <CommentBox url="/api/comments" pollInterval={2000} />
         document.getElementById('content')
       )
     </script>
